@@ -6,7 +6,12 @@
     <title>Create User</title>
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/dist/css/styles.css" />
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body class="d-flex justify-content-center align-items-center bg-gradient vh-100">
     <div class="h-50 w-75 ch-lg-40 w-lg-50 d-flex align-items-center justify-content-center bg-light shadow p-3 mb-5 bg-body-tertiary rounded">
@@ -29,12 +34,32 @@
             <input type="password" class="form-control" id="regPassword" minlength="8" placeholder="Password" required />
           </div>
           <div class="text-center">
-            <button type="button" onclick="getRegInfo()" class="btn btn-custom">Create</button>
+            <button type="button" class="btn btn-custom" id="createuser">Create</button>
           </div>
         </form>
+        <div class="modal fade" id="errorViewer" tabindex="-1" aria-labelledby="errorViewerLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="errorViewerLabel">An error occured!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" id="errModal"></div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <script src="/js/register.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script type="module" src="/js/modules/api.mjs"></script>
+    <script type="module" src="/js/modules/errorHandler.mjs"></script>
+    <script type="module" src="/js/register.mjs"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
