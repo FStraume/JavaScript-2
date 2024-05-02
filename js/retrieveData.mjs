@@ -1,46 +1,69 @@
 import { throwError } from "./modules/errorHandler.mjs";
 import { retrieveDate, API_KEY } from "./modules/api.mjs";
-import { getTimeSincePost } from "./modules/date.mjs";
 
 const itemContainer = document.querySelector("#feedContainer");
 
 async function getApiData(url) {
   try {
     const token = localStorage.getItem("accessToken");
-    console.log(token);
     const fetchOptions = {
       method: "GET",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}`, "X-Noroff-API-Key": API_KEY },
     };
     const response = await fetch(url, fetchOptions);
-    console.log(response);
+
     const feed = await response.json();
+    if (!response.ok) {
+      throwError(json);
+    }
     const posts = feed.data;
-    console.log(posts);
     posts.forEach((post) => {
       const time = post.updated;
-      let date1 = new Date(time);
-      let date2 = new Date(Date.now());
-      let Difference_In_Time = date2.getTime() - date1.getTime();
-      let Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
-      const timestamp = Difference_In_Days;
+      const postDate = new Date(time);
+      const now = new Date();
+      const timeDiff = now - postDate;
+      const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+      const days = Math.floor(hours / 24);
+
+      let message;
+
+      if (hours < 1) {
+        message = "Less than an hour ago";
+      } else if (hours === 1) {
+        message = "1 hour ago";
+      } else if (hours < 24) {
+        message = hours + " hours ago";
+      } else if (days === 1) {
+        message = "1 day ago";
+      } else {
+        message = days + " days ago";
+      }
+
+      const timestamp = message;
       if (post.media === null) {
         return;
       } else {
-        itemContainer.innerHTML += `<div class="card col p-0 mb-3">
-            <img src="${post.media.url}" class="card-img-top ch-100 ch-sm-33 ch-lg-25 object-cover border-bottom border-secondary" alt="${post.media.alt}"/>
-            <div class="card-body">
-              <a href="#" class="card-title text-dark text-decoration-none">@TEST</a>
-              <p class="card-text">${post.title}</p>
+        itemContainer.innerHTML += `        <div class="card col p-0 mb-3">
+        <img src="${post.media.url}" class="card-img-top ch-100 ch-sm-33 ch-lg-25 object-cover border-bottom border-secondary" alt="${post.media.alt}"/>
+        <div class="card-body pt-0">
+          <div class="row justify-content-between">
+            <div class="col">
               <p class="card-text"><small class="text-muted">Comments ${post._count.comments}</small></p>
-              <p class="card-text"><small class="text-muted">Likes ${post._count.reactions}</small></p>
-              <p class="card-text"><small class="text-muted">Uploaded ${timestamp} days ago</small></p>
             </div>
-          </div>`;
+            <div class="col">
+              <p class="card-text"><small class="text-muted float-end">Likes ${post._count.reactions}</small></p>
+            </div>
+          </div>
+          <a href="#" class="card-title text-dark text-decoration-underline">@TEST</a>
+          <p class="card-text">${post.title}</p>
+          <p class="card-text"><small class="text-muted">${timestamp}</small></p>
+        </div>
+      </div>`;
       }
     });
   } catch (error) {
     console.log(error);
+    throwError(error);
   }
 }
 

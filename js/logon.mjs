@@ -24,8 +24,6 @@ async function userLogon(url, data) {
     };
     const response = await fetch(url, postData);
     const json = await response.json();
-    console.log(response.ok);
-    console.log(json);
     if (response.ok === false) {
       throwError(json);
     }

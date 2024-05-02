@@ -41,6 +41,7 @@ async function getProfileData(url) {
     getPostData(profilePostUrl);
   } catch (error) {
     console.log(error);
+    throwError(error);
   }
 }
 

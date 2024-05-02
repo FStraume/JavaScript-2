@@ -35,7 +35,6 @@ async function createPost(url, data) {
       body: JSON.stringify(data),
     };
     const response = await fetch(url, postData);
-    console.log(response);
     const json = await response.json();
     if (response.ok === false) {
       throwError(json);
@@ -44,5 +43,6 @@ async function createPost(url, data) {
     return json;
   } catch (error) {
     console.log(error);
+    throwError(error);
   }
 }
