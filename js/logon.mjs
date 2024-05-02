@@ -30,7 +30,10 @@ async function userLogon(url, data) {
       throwError(json);
     }
     const accessToken = json.data.accessToken;
+    const userId = json.data.name;
     localStorage.setItem("accessToken", accessToken);
+    localStorage.setItem("userId", userId);
+
     window.location.href = "/profile/index.html";
   } catch (err) {}
 }

@@ -40,7 +40,7 @@ async function createPost(url, data) {
     if (response.ok === false) {
       throwError(json);
     }
-
+    window.location.reload();
     return json;
   } catch (error) {
     console.log(error);

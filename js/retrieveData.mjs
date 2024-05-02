@@ -1,4 +1,3 @@
-//import registerUrl from "/api.js";
 import { throwError } from "./modules/errorHandler.mjs";
 import { retrieveDate, API_KEY } from "./modules/api.mjs";
 import { getTimeSincePost } from "./modules/date.mjs";
@@ -26,7 +25,7 @@ async function getApiData(url) {
       let Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
       const timestamp = Difference_In_Days;
       if (post.media === null) {
-        console.log("Faen");
+        return;
       } else {
         itemContainer.innerHTML += `<div class="card col p-0 mb-3">
             <img src="${post.media.url}" class="card-img-top ch-100 ch-sm-33 ch-lg-25 object-cover border-bottom border-secondary" alt="${post.media.alt}"/>
