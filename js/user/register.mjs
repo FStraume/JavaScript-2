@@ -1,6 +1,6 @@
 //import registerUrl from "/api.js";
-import { throwError } from "./modules/errorHandler.mjs";
-import { registerUrl } from "./modules/api.mjs";
+import { throwError } from "../modules/errorHandler.mjs";
+import { registerUrl } from "../modules/api.mjs";
 
 const regUsername = document.getElementById("regUsername");
 const regEmail = document.getElementById("regEmail");

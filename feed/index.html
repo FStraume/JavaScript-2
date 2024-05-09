@@ -13,6 +13,7 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script src="https://kit.fontawesome.com/f4f1506a18.js" crossorigin="anonymous"></script>
   </head>
   <body class="p-3 bg-gradient background-fixed vh-100">
     <header>
@@ -168,6 +169,13 @@
           </div>
         </div>
       </div>
+      <div class="modal fade modal-lg" id="postView" tabindex="-1" role="dialog" aria-labelledby="postViewLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content" id="postContent">
+            <div class="modal-content">
+          </div>
+        </div>
+      </div>
     </main>
     <footer>
       <div class="container-fluid mt-5 text-center">
@@ -187,7 +195,8 @@
     </footer>
     <script type="module" src="/js/modules/api.mjs"></script>
     <script type="module" src="/js/modules/errorHandler.mjs"></script>
-    <script type="module" src="/js/retrieveData.mjs"></script>
-    <script type="module" src="/js/createpost.mjs"></script>
+    <script type="module" src="/js/modules/timestamp.mjs"></script>
+    <script type="module" src="/js/Get-data/retrieveData.mjs"></script>
+    <script type="module" src="/js/post/createpost.mjs"></script>
   </body>
 </html>

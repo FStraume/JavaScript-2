@@ -13,6 +13,7 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script src="https://kit.fontawesome.com/f4f1506a18.js" crossorigin="anonymous"></script>
   </head>
   <body class="px-3 pt-7 pt-sm-10 pt-xl-15 bg-gradient background-fixed vh-100">
     <header>
@@ -76,6 +77,39 @@
       <div class="card-group">
         <div class="row row-cols-1 row-cols-sm-3 row-cols-lg-4 gap-3 justify-content-center" id="postContainer"></div>
       </div>
+      <div class="modal fade modal-lg" id="postEdit" tabindex="-1" role="dialog" aria-labelledby="postEditLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content" id="postUpdateContainer">
+            <div class="modal-content">
+              <h2>Edit</h2>
+          <form id="form">
+            <div class="mb-3">
+              <label for="posttitle" class="form-label"></label>
+              <input type="text" class="form-control" id="posttitle" placeholder="" required />
+            </div>
+            <div class="mb-3">
+              <label for="posttags" class="form-label"></label>
+              <input type="text" class="form-control" id="posttags" placeholder="" required />
+            </div>
+            <div class="mb-3">
+              <label for="postdescription" class="form-label">Description</label>
+              <textarea class="form-control" id="postdescription" rows="3" placeholder=""></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="postimageUrl" class="form-label"></label>
+              <input type="url" class="form-control" id="postimageUrl" placeholder="" required />
+            </div>
+            <div class="mb-3">
+              <label for="postimageAltText" class="form-label"></label>
+              <input type="text" class="form-control" id="postimageAltText" placeholder="" required />
+            </div>
+            <div class="text-center">
+              <button type="button" class="btn btn-primary btn-outline-secondary" id="updatepost">Update</button>
+            </div>
+          </form>
+            </div>
+        </div>
+      </div>
     </main>
     <footer>
       <div class="container-fluid mt-5 text-center">
@@ -95,7 +129,9 @@
     </footer>
     <script type="module" src="/js/modules/api.mjs"></script>
     <script type="module" src="/js/modules/errorHandler.mjs"></script>
-    <script type="module" src="/js/modules/getuserposts.mjs"></script>
-    <script type="module" src="/js/profile.mjs"></script>
+    <script type="module" src="/js/Get-data/getuserposts.mjs"></script>
+    <script type="module" src="/js/post/updatepost.mjs"></script>
+    <script type="module" src="/js/post/deletepost.mjs"></script>
+    <script type="module" src="/js/profile/profile.mjs"></script>
   </body>
 </html>

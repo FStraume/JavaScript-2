@@ -1,5 +1,5 @@
-import { throwError } from "./modules/errorHandler.mjs";
-import { logonUrl } from "./modules/api.mjs";
+import { throwError } from "../modules/errorHandler.mjs";
+import { logonUrl } from "../modules/api.mjs";
 
 const email = document.getElementById("email");
 const password = document.getElementById("password");

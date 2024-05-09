@@ -1,6 +1,6 @@
-import { throwError } from "./modules/errorHandler.mjs";
-import { getProfile, API_KEY } from "./modules/api.mjs";
-import { getPostData } from "./modules/getuserposts.mjs";
+import { throwError } from "../modules/errorHandler.mjs";
+import { getProfile, API_KEY } from "../modules/api.mjs";
+import { getPostData } from "../Get-data/getuserposts.mjs";
 
 const userId = localStorage.getItem("userId");
 const profileUrl = `${getProfile}${userId}`;

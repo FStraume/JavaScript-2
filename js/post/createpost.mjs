@@ -1,6 +1,6 @@
 //import registerUrl from "/api.js";
-import { throwError } from "./modules/errorHandler.mjs";
-import { createPostUrl, API_KEY } from "./modules/api.mjs";
+import { throwError } from "../modules/errorHandler.mjs";
+import { postsUrl, API_KEY } from "../modules/api.mjs";
 
 var x = document.getElementById("form").elements[0].value;
 
@@ -23,7 +23,7 @@ function getPostInfo() {
     },
   };
 
-  createPost(createPostUrl, postData);
+  createPost(postsUrl, postData);
 }
 
 async function createPost(url, data) {
