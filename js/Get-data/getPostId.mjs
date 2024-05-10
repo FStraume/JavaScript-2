@@ -5,9 +5,9 @@ export async function fetchPost(event) {
   const modal = document.getElementById("postView");
   const modalContent = document.getElementById("postContent");
   const token = localStorage.getItem("accessToken");
-  const clickedPost = event.target.closest(".card");
-  if (clickedPost) {
-    const postId = clickedPost.dataset.postId;
+  const post = event.target.closest(".card");
+  if (post) {
+    const postId = post.dataset.postId;
     const response = await fetch(`${retrieveData}/${postId}`, {
       headers: {
         "X-Noroff-API-Key": API_KEY,

@@ -2,6 +2,7 @@ import { throwError } from "../modules/errorHandler.mjs";
 import { getProfile, API_KEY } from "../modules/api.mjs";
 import { getTimestamp } from "../modules/timestamp.mjs";
 import { updatePost } from "../post/updatepost.mjs";
+import { deletePost } from "../post/deletepost.mjs";
 
 const postContainer = document.querySelector("#postContainer");
 
@@ -31,8 +32,8 @@ async function getPostData(url) {
         <div class="col btn-group justify-content-end align-items-center">
           <i class="fa-solid fa-ellipsis" data-bs-toggle="dropdown" aria-expanded="false"></i>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><button class="dropdown-item" type="button" id="postedit">Edit</button></li>
-            <li><button class="dropdown-item" type="button" id="postdelete">Delete</button></li>
+            <li><button class="dropdown-item edit-btn" type="button">Edit</button></li>
+            <li><button class="dropdown-item delete-btn" type="button">Delete</button></li>
           </ul>
         </div>
       </div>
@@ -54,8 +55,28 @@ async function getPostData(url) {
         <p class="card-text"><small class="text-muted">${timestamp}</small></p>
       </div>
     </div>`;
-      document.getElementById("postedit").addEventListener("click", updatePost);
     });
+
+    postContainer.removeEventListener("click", handleCardClick);
+    postContainer.addEventListener("click", handleCardClick);
+
+    function handleCardClick(event) {
+      const target = event.target;
+
+      if (target.classList.contains("edit-btn")) {
+        const card = target.closest(".card");
+        const postId = card.getAttribute("data-post-id");
+        updatePost(postId);
+      }
+
+      if (target.classList.contains("delete-btn")) {
+        const card = target.closest(".card");
+        const postId = card.getAttribute("data-post-id");
+        if (confirm("Are you sure you want to delete this post?")) {
+          deletePost(postId);
+        }
+      }
+    }
   } catch (error) {
     console.log(error);
     throwError(error);
