@@ -43,8 +43,8 @@
               </li>
             </ul>
             <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search here.." aria-label="Search" />
-              <button class="btn btn-outline-secondary" type="submit">Search</button>
+              <input class="form-control me-2" type="search" id="searchPostInput" placeholder="Search here.." aria-label="Search" />
+              <button class="btn btn-outline-secondary" id="searchPostBtn" type="button">Search</button>
             </form>
           </div>
         </div>
@@ -145,7 +145,8 @@
               <div class="mb-5">
                 <h6 class="mb-2">Tags</h6>
                 <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="#Landscape..." aria-label="Search" />
+                  <input class="form-control me-2" type="search" placeholder="#Landscape..." id="tagFilter" aria-label="Search" />
+                  <button type="button" class="btn btn-primary btn-outline-secondary" id="tagBtn">Apply</button>
                 </form>
               </div>
             </div>
@@ -197,6 +198,8 @@
     <script type="module" src="/js/modules/errorHandler.mjs"></script>
     <script type="module" src="/js/modules/timestamp.mjs"></script>
     <script type="module" src="/js/Get-data/retrieveData.mjs"></script>
+    <script type="module" src="/js/post/search.mjs"></script>
+    <script type="module" src="/js/post/filter.mjs"></script>
     <script type="module" src="/js/post/createpost.mjs"></script>
   </body>
 </html>
