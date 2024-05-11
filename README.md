@@ -1,33 +1,73 @@
-# JavaScript-2
+# JS2 Course Assignment
 
-JavaScript 2 repository for the JS2 CA
+## Description
 
-<div class="card mb-3 shadow-sm">
-    <img src="${post.media.url}" class="card-img-top" alt="${post.media.alt}" style="object-fit: cover; height: 200px;">
-    <div class="card-body">
-        <h5 class="card-title text-dark">${post.title}</h5>
-        <a href="#" class="stretched-link text-decoration-none"></a> <!-- Makes the entire card clickable -->
-        <p class="card-text"><small class="text-muted">${timestamp}</small></p>
-        <div class="d-flex justify-content-between">
-            <span class="badge bg-primary">Comments ${post._count.comments}</span>
-            <span class="badge bg-success">Likes ${post._count.reactions}</span>
-        </div>
-    </div>
-</div>
+This Social Media page is part of my studies at Noroff, its a site using Noroff API v2 to be able to register, log in, post, edit and delete content.
 
-<div class="card col p-0 mb-3">
-        <img src="${post.media.url}" class="card-img-top ch-100 ch-sm-33 ch-lg-25 object-cover border-bottom border-secondary" alt="${post.media.alt}"/>
-            <div class="card-body pt-0">
-            <div class="row justify-content-between">
-              <div class="col">
-              <p class="card-text"><small class="text-muted">Comments ${post._count.comments}</small></p>
-              </div>
-              <div class="col">
-              <p class="card-text"><small class="text-muted float-end">Likes ${post._count.reactions}</small></p>
-              </div>
-              </div>
-              <a href="#" class="card-title text-dark text-decoration-underline">@TEST</a>
-              <p class="card-text">${post.title}</p>
-              <p class="card-text"><small class="text-muted">${timestamp}</small></p>
-            </div>
-          </div>
+## Built with
+
+- HTML/Bootstrap
+
+- CSS/Scss
+
+- JavaScript
+
+## Getting started
+
+### Installing
+
+1. Clone the repo:
+
+```
+git clone https://github.com/FStraume/JavaScript-2.git
+```
+
+2. Innstall the dependencies:
+
+```
+NodeJs
+```
+
+```
+NPM
+```
+
+```
+npm install bootstrap
+```
+
+```
+npm install -g sass
+```
+
+```
+npm install -g live-server
+```
+
+### Running
+
+You need to have Node installed to run this on your computer, and use the following command in the directory of the project.
+
+```
+npm run-script watch
+```
+
+```
+live-server
+```
+
+## Link to project
+
+Link to my GitHub Projects
+
+```
+https://github.com/users/FStraume/projects/1
+```
+
+## Contact
+
+Here is my contact information if you want to contact me:
+
+[LinkedIn](https://www.linkedin.com/in/fredrik-straume-3570352a4/)
+
+<straume1998@gmail.com>
