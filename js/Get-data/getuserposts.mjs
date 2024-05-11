@@ -5,6 +5,7 @@ import { updatePost } from "../post/updatepost.mjs";
 import { deletePost } from "../post/deletepost.mjs";
 
 const postContainer = document.querySelector("#postContainer");
+const loader = document.getElementById("loader");
 
 async function getPostData(url) {
   try {
@@ -78,6 +79,7 @@ async function getPostData(url) {
         }
       }
     }
+    loader.innerHTML = "";
   } catch (error) {
     throwError(error);
   }
