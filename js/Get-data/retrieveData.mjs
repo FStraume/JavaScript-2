@@ -4,6 +4,7 @@ import { fetchPost } from "./getPostId.mjs";
 import { getTimestamp } from "../modules/timestamp.mjs";
 
 const itemContainer = document.querySelector("#feedContainer");
+const loader = document.getElementById("loader");
 
 async function getApiData(url) {
   try {
@@ -19,6 +20,7 @@ async function getApiData(url) {
       throwError(json);
     }
     const posts = feed.data;
+
     posts.forEach((post) => {
       const timestamp = getTimestamp(post.updated);
       if (post.media === null) {
@@ -56,6 +58,8 @@ async function getApiData(url) {
       }
       itemContainer.addEventListener("click", fetchPost);
     });
+    loader.innerHTML = "";
+    console.log(loader);
   } catch (error) {
     throwError(error);
   }
