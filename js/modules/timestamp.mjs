@@ -1,3 +1,15 @@
+/**
+ * Calculates time since post was created/updated and turns it in to a readable format, calculating how many hours/days have pased since the post was created.
+ *
+ * @param {string} dtg - The date and time in string format - from the API
+ * @returns {string} Returns a string, calculated from then to now
+ *     It can be "Less than an hour ago", "1 day ago" and so on.
+ *
+ * @example
+ * // If the current time is "May 6, 2024 14:59:59", this will return "1 day ago"
+ * getTimestamp("May 5, 2024 14:59:59"));
+ */
+
 export function getTimestamp(dtg) {
   const postDate = new Date(dtg);
   const now = new Date();

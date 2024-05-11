@@ -42,7 +42,6 @@ async function createPost(url, data) {
     window.location.reload();
     return json;
   } catch (error) {
-    console.log(error);
     throwError(error);
   }
 }

@@ -36,15 +36,17 @@
           <div class="collapse navbar-collapse mt-3" id="navbarToggler">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active fs-3 mx-4" aria-current="page" href="/feed/index.html">Home</a>
+                <a class="nav-link fs-3 mx-4 active"  aria-current="page" href="/feed/index.html"><i class="fa-solid fa-house"></i> Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-3 mx-4" href="/profile/index.html">Profile</a>
+                <a class="nav-link fs-3 mx-4" href="/profile/index.html"><i class="fa-solid fa-user"></i> Profile</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" id="searchPostInput" placeholder="Search here.." aria-label="Search" />
-              <button class="btn btn-outline-secondary" id="searchPostBtn" type="button">Search</button>
+              <div class="input-group mb-3">
+                <input type="search" class="form-control" id="searchPostInput" placeholder="Dogs..." aria-label="Search" aria-describedby="searchPostBtn">
+                <button class="btn btn-outline-secondary" type="button" id="searchPostBtn">Apply</button>
+              </div>
             </form>
           </div>
         </div>
@@ -145,8 +147,10 @@
               <div class="mb-5">
                 <h6 class="mb-2">Tags</h6>
                 <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="#Landscape..." id="tagFilter" aria-label="Search" />
-                  <button type="button" class="btn btn-primary btn-outline-secondary" id="tagBtn">Apply</button>
+                  <div class="input-group mb-3">
+                    <input type="search" class="form-control" id="tagFilter" placeholder="Landscape..." aria-label="Search" aria-describedby="tagBtn">
+                    <button class="btn btn-outline-secondary" type="button" id="tagBtn">Apply</button>
+                  </div>
                 </form>
               </div>
             </div>
@@ -171,10 +175,8 @@
         </div>
       </div>
       <div class="modal fade modal-lg" id="postView" tabindex="-1" role="dialog" aria-labelledby="postViewLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
           <div class="modal-content" id="postContent">
-            <div class="modal-content">
-          </div>
         </div>
       </div>
     </main>

@@ -27,8 +27,6 @@ export async function updatePost(event) {
     throwError(json);
     return;
   }
-  console.log(json);
-
   title.value = json.data.title;
   tags.value = json.data.tags;
   description.value = json.data.body;
@@ -54,7 +52,6 @@ export async function pushPost() {
   const data = fetchPostData();
   const token = localStorage.getItem("accessToken");
   const url = `${postsUrl}/${postId}`;
-  console.log(data);
 
   const updateOptions = {
     method: "PUT",
@@ -65,10 +62,9 @@ export async function pushPost() {
   const response = await fetch(url, updateOptions);
   const json = await response.json();
   if (!response.ok) {
-    console.log(response);
+    throwError(json);
     return;
   }
-  console.log(json);
 
   location.reload();
 }

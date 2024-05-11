@@ -15,7 +15,6 @@ async function getApiData(url) {
     const response = await fetch(url, fetchOptions);
 
     const feed = await response.json();
-    console.log(feed);
     if (!response.ok) {
       throwError(json);
     }
@@ -31,8 +30,8 @@ async function getApiData(url) {
           <div class="col btn-group justify-content-end align-items-center">
             <i class="fa-solid fa-ellipsis" data-bs-toggle="dropdown" aria-expanded="false"></i>
             <ul class="dropdown-menu dropdown-menu-end">
-              <li><button class="dropdown-item" type="button">Edit</button></li>
-              <li><button class="dropdown-item" type="button">Delete</button></li>
+              <li><button class="dropdown-item" type="button">Hide</button></li>
+              <li><button class="dropdown-item" type="button">Block</button></li>
             </ul>
           </div>
         </div>
@@ -58,7 +57,6 @@ async function getApiData(url) {
       itemContainer.addEventListener("click", fetchPost);
     });
   } catch (error) {
-    console.log(error);
     throwError(error);
   }
 }

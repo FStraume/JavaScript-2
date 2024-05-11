@@ -1,5 +1,6 @@
 import { retrieveData, API_KEY } from "../modules/api.mjs";
 import { getTimestamp } from "../modules/timestamp.mjs";
+import { throwError } from "../modules/errorHandler.mjs";
 
 export async function fetchPost(event) {
   const modal = document.getElementById("postView");
@@ -52,6 +53,6 @@ export async function fetchPost(event) {
 
     new bootstrap.Modal(document.querySelector("#postView")).show();
   } else {
-    console.log("Failed to fetch single post");
+    throwError({ message: `Could not find any posts tagged with ${value}` });
   }
 }

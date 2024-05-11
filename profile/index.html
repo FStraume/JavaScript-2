@@ -15,7 +15,7 @@
     ></script>
     <script src="https://kit.fontawesome.com/f4f1506a18.js" crossorigin="anonymous"></script>
   </head>
-  <body class="px-3 pt-7 pt-sm-10 pt-xl-15 bg-gradient background-fixed vh-100">
+  <body class="px-3 pt-7 pt-sm-10 bg-gradient background-fixed vh-100">
     <header>
       <nav class="navbar navbar-expand-md bg-primary fixed-top">
         <div class="container-fluid">
@@ -36,10 +36,10 @@
           <div class="collapse navbar-collapse mt-3" id="navbarToggler">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link fs-3 mx-4" href="/feed/index.html">Home</a>
+                <a class="nav-link fs-3 mx-4" href="/feed/index.html"><i class="fa-solid fa-house"></i> Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-3 mx-4 active" aria-current="page" href="/profile/index.html">Profile</a>
+                <a class="nav-link fs-3 mx-4 active" aria-current="page" href="/profile/index.html"><i class="fa-solid fa-user"></i> Profile</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
@@ -51,27 +51,9 @@
       </nav>
     </header>
     <main>
-      <div class="container p-0 position-relative mt-7">
-        <div id="profileData"></div>
-          <div class="row justify-content-center mt-3 pb-3">
-            <div class="btn-group col-6 col-lg-4">
-              <button type="button" class="btn btn-outline-secondary">Follow</button>
-              <button
-                type="button"
-                class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-              <span class="visually-hidden">Toggle Dropdown</span>
-              </button>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <li><button class="dropdown-item" href="#">Add Friend</button></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item text-danger" href="#">Report</a></li>
-                <li><a class="dropdown-item text-danger" href="#">Block</a></li>
-              </ul>
-            </div>
-          </div>
+      <div class="container p-0 position-relative mt-7 mb-3">
+        <div id="profileData">
+        </div>
         </div>
       </div>
       <div class="card-group">
@@ -80,7 +62,7 @@
       <div class="modal fade modal-lg" id="postEdit" tabindex="-1" role="dialog" aria-labelledby="postEditLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content" id="postUpdateContainer">
-            <div class="modal-content">
+            <div class="modal-content p-3">
               <h2>Edit</h2>
           <form id="form">
             <div class="mb-3">

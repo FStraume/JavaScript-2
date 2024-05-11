@@ -7,10 +7,8 @@ const searchButton = document.getElementById("searchPostBtn");
 const resultContainer = document.getElementById("feedContainer");
 
 async function searchPostById(value) {
-  console.log(value);
   const token = localStorage.getItem("accessToken");
   const url = `${postsUrl}/search?q=${value}`;
-  console.log(url);
   const fetchOptions = {
     method: "GET",
     headers: {
@@ -22,7 +20,6 @@ async function searchPostById(value) {
 
   const response = await fetch(url, fetchOptions);
   const json = await response.json();
-  console.log(json);
   if (!response.ok) {
     throwError(json);
     return;
@@ -30,6 +27,9 @@ async function searchPostById(value) {
 
   const posts = json.data;
   resultContainer.innerHTML = "";
+  if (posts.length === 0) {
+    throwError({ message: `Your search returned no results, searching for ${value}` });
+  }
   posts.forEach((post) => {
     const timestamp = getTimestamp(post.updated);
     if (post.media === null) {
@@ -68,10 +68,8 @@ async function searchPostById(value) {
   });
 }
 
-// Add event listener for the search button
 searchButton.addEventListener("click", () => {
   const input = searchInput.value.trim();
-  console.log(input);
   if (input) {
     searchPostById(input);
   }

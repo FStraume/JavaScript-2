@@ -8,6 +8,7 @@ const postContainer = document.querySelector("#postContainer");
 
 async function getPostData(url) {
   try {
+    const userId = localStorage.getItem("userId");
     const token = localStorage.getItem("accessToken");
     const fetchOptions = {
       method: "GET",
@@ -28,7 +29,7 @@ async function getPostData(url) {
       if (!profilePost.media) return;
       postContainer.innerHTML += `<div class="card col p-0 mb-3" data-post-id="${profilePost.id}">
       <div class="card-header row justify-content-between mx-0">
-        <h5 class="col">@anonymous</h5>
+        <h5 class="col">@${userId}</h5>
         <div class="col btn-group justify-content-end align-items-center">
           <i class="fa-solid fa-ellipsis" data-bs-toggle="dropdown" aria-expanded="false"></i>
           <ul class="dropdown-menu dropdown-menu-end">
@@ -78,7 +79,6 @@ async function getPostData(url) {
       }
     }
   } catch (error) {
-    console.log(error);
     throwError(error);
   }
 }

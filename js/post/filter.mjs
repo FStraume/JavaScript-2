@@ -8,10 +8,8 @@ const resultContainer = document.getElementById("feedContainer");
 const showError = document.getElementById("card-group");
 
 export async function tagFilter(value) {
-  console.log(value);
   const token = localStorage.getItem("accessToken");
   const url = `${postsUrl}?_tag=${value}`;
-  console.log(url);
   const fetchOptions = {
     method: "GET",
     headers: {
@@ -73,7 +71,6 @@ export async function tagFilter(value) {
 
 applyBtn.addEventListener("click", () => {
   const input = tagInput.value.trim();
-  console.log(input);
   if (input) {
     tagFilter(input);
   }
